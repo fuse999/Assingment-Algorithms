@@ -3,8 +3,22 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+    # Confirm we have the ingredients needed
+    if set(recipe) == set(ingredients):
+        batches = []
+        for i in recipe:
+            # Find how many batches can be made out
+            # of available ingredients
+            if ingredients[i] >= recipe[i]:
+                used = ingredients[i] // recipe[i]
+                batches.append(used)
+        # Find the smallest number of batches in the list
+        return min(batches)
+    else:
+        # Return 0 if we don't have the needed ingredients
+        return 0
 
+# I Loved this one.
 
 if __name__ == '__main__':
   # Change the entries of these dictionaries to test 
